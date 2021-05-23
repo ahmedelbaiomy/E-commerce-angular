@@ -11,13 +11,14 @@ import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
    {path: 'home', component:HomeComponent},
-   {path: 'cart', component:CartComponent},   
-   {path: 'checkout', component:CheckoutComponent},   
+   {path: 'cart', component:CartComponent},
+   {path: 'checkout', component:CheckoutComponent},
    {path: 'login', component:LoginComponent},
    {path: 'register', component:RegisterComponent},
    {path: 'product', component:ProductComponent},
-   {path: 'about', component:AboutComponent}   
-  
+   {path: 'about', component:AboutComponent},
+   {path: '**', component:HomeComponent},
+
 
 
 
