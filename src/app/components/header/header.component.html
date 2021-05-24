@@ -23,6 +23,10 @@
                 <li>
                   <a class="nav-link" (click)="logout()" *ngIf="u.loggedIn">Logut</a>
                 </li>
+                <li>
+                  <a class="nav-link"  routerLink="/profile/setting" *ngIf="u.loggedIn">My Account</a>
+                </li>
+
               </ul>
             </div>
           </nav>
