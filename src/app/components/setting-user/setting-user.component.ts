@@ -18,7 +18,7 @@ export class SettingUserComponent implements OnInit {
       d => console.log(d)
     )
     alert("Your change is done :)");
-
+    this.router.navigateByUrl("/home")
   }
   delete() {
     console.log(this.Euser)
