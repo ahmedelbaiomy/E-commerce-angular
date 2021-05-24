@@ -1,70 +1,116 @@
-<!--Body Content-->
 <div id="page-content">
-    <!--Page Title-->
-    <div class="page section-header text-center">
-        <div class="page-title">
-            <div class="wrapper"><h1 class="page-width">Register</h1></div>
-          </div>
+  <div class="page section-header text-center">
+    <div class="page-title">
+      <div class="wrapper">
+        <h1 class="page-width">Register</h1>
+      </div>
     </div>
-    <!--End Page Title-->
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
-                <div class="mb-4">
-                   <form method="post" action="#" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">	
-                      <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="CustomerEmail">First Name</label>
-                                <input type="text"  id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus="">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="CustomerEmail">Last Name</label>
-                                <input type="text"  placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus="">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="CustomerEmail">Gender</label>
-                                <select>
-                                    <option>male</option>
-                                    <option>female</option>
+  </div>
 
-                                </select>
-                                <!-- <input type="number" placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus=""> -->
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="CustomerEmail">Email</label>
-                                <input type="email" name="customer[email]" placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus="">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="CustomerEmail">Age</label>
-                                <input type="number" placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus="">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="CustomerPassword">Password</label>
-                                <input type="password" value="" name="customer[password]" placeholder="" id="CustomerPassword" class="">                        	
-                            </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
-                            <input type="submit" class="btn mb-3" value="Sign In">
-                        </div>
-                     </div>
-                 </form>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
+        <div class="mb-4">
+          <form [formGroup]="profileForm" method="post" action="#" id="CustomerLoginForm" accept-charset="UTF-8"
+            class="contact-form">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">First Name</label>
+                  <input type="text" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus=""
+                    formControlName="firstname" #Firstname placeholder="FirstName" />
+
+                  <div *ngIf="
+                      firstname?.invalid &&
+                      (firstname?.dirty || firstname?.touched)
+                    " class="alert alert-danger">
+                    <div *ngIf="firstname?.errors?.required">
+                      firstname is required.
+                    </div>
+                  </div>
                 </div>
-               </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">Last Name</label>
+                  <input type="text" placeholder="" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off"
+                    autofocus="" formControlName="lastname" #Lastname placeholder="lastname" />
+                  <div *ngIf="
+                      lastname?.invalid &&
+                      (lastname?.dirty || lastname?.touched)
+                    " class="alert alert-danger">
+                    <div *ngIf="lastname?.errors?.required">
+                      lastname is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">UsereName</label>
+                  <input type="text" id="CustomerEmail" class="" autocorrect="off" autocapitalize="off" autofocus=""
+                    formControlName="username" #Username placeholder="UserName" />
+                  <div *ngIf="
+                      username?.invalid &&
+                      (username?.dirty || username?.touched)
+                    " class="alert alert-danger">
+                    <div *ngIf="username?.errors?.required">
+                      UserName is required.
+                    </div>
+                    <div *ngIf="username?.errors?.minlength">
+                      UserName must be at least 8 characters long.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">Email</label>
+                  <input type="email" name="customer[email]" placeholder="email" id="CustomerEmail" class=""
+                    autocorrect="off" autocapitalize="off" autofocus="" formControlName="email" #Email />
+                  <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
+                    <div *ngIf="email?.errors?.required">
+                      Email is required.
+                    </div>
+                    <div *ngIf="email?.errors?.email">
+                      UserName must be match email format.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerPassword">Password</label>
+                  <input type="password" value="" name="customer[password]" formControlName="password"
+                    id="CustomerPassword" class="" #Password placeholder="Password" />
+                  <div *ngIf="
+                      password?.invalid &&
+                      (password?.dirty || password?.touched)
+                    " class="alert alert-danger">
+                    <div *ngIf="lastname?.errors?.required">
+                      password is required.
+                    </div>
+                    <div *ngIf="password?.errors?.minlength">
+                      password must be at least 8 characters long.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
+                  <input type="submit" (click)="Submit()" [disabled]="!profileForm.valid" class="btn mb-3"
+                    value="Sign In" />
+                  <div *ngIf="errors" class="alert alert-danger">
+                    Enter Valid data.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-    
+  </div>
 </div>
-<!--End Body Content-->

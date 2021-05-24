@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   constructor(public u: UserService,private router:Router) { }
   logout(){
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-     // this.router.navigateByUrl('/blog/list')
+
     })
     this.u.logout();
 
