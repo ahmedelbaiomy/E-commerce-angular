@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     ]),
   });
   constructor(private UserService: UserService, private router: Router) { }
-  urlImg: string = "assets/image/signin-image.jpg";
+ 
 
   get username(){
      return this.profileForm.get('username') ;

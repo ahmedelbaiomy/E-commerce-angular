@@ -38,7 +38,7 @@ export class UserService {
     localStorage.removeItem('access_id');
 
   }
-
+// method for check if user logged in or not 
   public get loggedIn(): boolean {
     return (localStorage.getItem('access_token') !== null);
   }
