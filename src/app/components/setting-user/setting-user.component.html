@@ -19,6 +19,11 @@
                           [(ngModel)]="Euser.username" />
                   </div>
                   <div class="form-group">
+                    <label for="email"><i class="zmdi zmdi-account "></i></label>
+                    <input type="email" name="email" id="email" placeholder="Email"
+                        [(ngModel)]="Euser.email" />
+                </div>
+                  <div class="form-group">
                       <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                       <input type="password" name="pass" id="pass" placeholder="Password"
                           [(ngModel)]="Euser.password" />
@@ -33,4 +38,6 @@
       </div>
   </div>
 </section>
+
+
 
