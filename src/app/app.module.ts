@@ -17,6 +17,7 @@ import { AboutComponent } from './components/about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './components/_Services/user.service';
 import { SettingUserComponent } from './components/setting-user/setting-user.component';
+// import { EditproductComponent } from './components/editproduct/editproduct.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -33,7 +34,7 @@ export function tokenGetter() {
     RegisterComponent,
     ProductComponent,
     AboutComponent,
-    SettingUserComponent
+    SettingUserComponent 
     ],
   imports: [
     BrowserModule,

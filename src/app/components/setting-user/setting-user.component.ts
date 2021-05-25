@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../_Models/User';
@@ -18,7 +19,7 @@ export class SettingUserComponent implements OnInit {
       d => console.log(d)
     )
     alert("Your change is done :)");
-
+    this.router.navigateByUrl("/home")
   }
   delete() {
     console.log(this.Euser)

@@ -1,10 +1,10 @@
-<!--Body Content-->
+!--Body Content-->
 <div id="page-content">
   <!--Page Title-->
   <div class="page section-header text-center">
     <div class="page-title">
       <div class="wrapper">
-        <h1 class="page-width">Create &nbsp; Product</h1>
+        <h1 class="page-width">update &nbsp; Product</h1>
       </div>
     </div>
   </div>
@@ -89,60 +89,14 @@
               <div
                 class="form-group my-4 text-center text-center col-12 col-sm-12 col-md-12 col-lg-12"
               >
-                <button class="btn btn-secondary" (click)="save()">
-                  Create product
+                <button class="btn btn-secondary" (click)="updateProduct()">
+                  Update product
                 </button>
               </div>
             </div>
           </form>
-
-          <!-- <div class="container">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3"> -->
-          <div class="container">
-            <div class="row">
-              <div
-                class="col-xl-3 col-lg-4 col-sm-6"
-                *ngFor="let item of products"
-              >
-                <div class="product text-center">
-                  <div class="position-relative mb-3">
-                    <div class="badge text-white badge-"></div>
-                    <a class="d-block" href="detail.html"
-                      ><img
-                        class="img-fluid w-100"
-                        [src]="'http://localhost:3000/' + item.photo"
-                        alt="..."
-                      />
-                    </a>
-                    <div class="product-overlay">
-                      <ul class="mb-0 list-inline">
-                        <li class="list-inline-item m-0 p-0">
-                          <a class="btn btn-sm btn-dark" href="/update"
-                            >update</a
-                          >
-                        </li>
-                        <li class="list-inline-item m-0 p-0">
-                          <a class="btn btn-sm btn-dark" href="/delete"
-                            >delete</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <h6>
-                    <a class="reset-anchor" href="detail.html">{{
-                      item.product
-                    }}</a>
-                  </h6>
-                  <p class="small text-muted">{{ item.price }}$</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!--End Body Content-->

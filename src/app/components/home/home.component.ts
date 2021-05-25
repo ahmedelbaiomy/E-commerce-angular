@@ -22,5 +22,6 @@ export class HomeComponent implements OnInit {
       d => this.products = d
     )
   }
+  
 
 }

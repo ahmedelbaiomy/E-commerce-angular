@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 
 
@@ -8,13 +10,14 @@ import { Products } from '../../_Models/Products';
 import { ProductsService } from '../../_Services/products.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  selector: 'app-editproduct',
+  templateUrl: './editproduct.component.html',
+  styleUrls: ['./editproduct.component.css']
 })
-export class ProductComponent implements OnInit {
+export class EditproductComponent implements OnInit {
   products: Products[] = [];
   currentProduct:any=null;
+  message = '';
   // ProductToUpdate;
 
   nproduct: Products = new Products(" ", " "," "," ");
@@ -92,8 +95,21 @@ export class ProductComponent implements OnInit {
   }
 
 
+  updateProduct(): void {
+    this.ProductsService.updateProduct(this.currentProduct.id, this.currentProduct)
+      .subscribe(
+        response => {
+          console.log(response);
+          this.message= 'The product was updated successfully!';
+        },
+        error => {
+          console.log(error);
+        });
+  }
 
 
+
+// /home/asmaa/Downloads/E-commerce-angular/src
   
 
 }

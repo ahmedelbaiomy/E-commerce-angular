@@ -23,6 +23,8 @@ export class ProductsService {
  updateProduct(id:any,Product:any){
     return this.http.put(`http://localhost:3000/api/products/${id}`,Product);
   }
+
+  
   getProductById(id:any){
     return this.http.get(`http://localhost:3000/api/products/${id}`)
   }
@@ -34,5 +36,11 @@ export class ProductsService {
     return this.http.delete(`http://localhost:3000/api/products/${id}`);
   }
 
+
+
+
+
+
+  
   constructor(private http: HttpClient) { }
 }
