@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
 
 
 @Component({
@@ -9,5 +8,10 @@ import * as $ from 'jquery';
 })
 export class AppComponent {
   title = 'clientSide';
+  
+
+  ngOnInit() {
+
+  }
 
 }
