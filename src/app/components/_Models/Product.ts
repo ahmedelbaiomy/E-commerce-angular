@@ -5,7 +5,7 @@ export class Product {
         public description: string,
         public price:string,
         public photo:string,
-        public createdAt:Date,
+        public createdAt?:Date,
         public dob ?: Date,
         public _id?:string,
         )

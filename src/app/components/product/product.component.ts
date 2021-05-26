@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Products } from '../../_Models/Products';
-import { ProductsService } from '../../_Services/products.service';
+import { Product } from '../_Models/Product';
+import { ProductService } from '../_Services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -17,13 +17,13 @@ export class ProductComponent implements OnInit {
   currentProduct:any=null;
   // ProductToUpdate;
 
-  nproduct: Products = new Products(" ", " "," "," ");
+  nproduct: Product = new Product(" ", " "," "," ");
   selectedFile!: File;
   addForm!: FormGroup;
  
   Product = new FormData();
 
-  constructor(public ProductsService: ProductsService, public ar:  ActivatedRoute, public route: Router, public fb: FormBuilder) { 
+  constructor(public ProductService: ProductService, public ar:  ActivatedRoute, public route: Router, public fb: FormBuilder) { 
     this.addForm = this.fb.group({
       product: [''],
      description: [''],
@@ -48,7 +48,7 @@ export class ProductComponent implements OnInit {
   }
 
   save() {
-    this.Product.append('product', this.nproduct.product)
+    this.Product.append('title', this.nproduct.title)
     this.Product.append('description', this.nproduct.description)
 
     this.Product.append('price', this.nproduct.price);
@@ -57,7 +57,7 @@ export class ProductComponent implements OnInit {
     
 
 
-    this.ProductsService.add(this.Product).subscribe(
+    this.ProductService.add(this.Product).subscribe(
       a => {
         console.log(this.selectedFile)
         console.log(a)
@@ -75,7 +75,7 @@ export class ProductComponent implements OnInit {
 
 
   getProduct(id:any): void {
-    this.ProductsService. getProductById(id)
+    this.ProductService. getProductById(id)
       .subscribe(
         data => {
         this.currentProduct= data;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Products } from '../../_Models/Products';
-import { ProductsService } from '../../_Services/products.service';
+import { Product } from '../_Models/Product';
+import { ProductService } from '../_Services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -12,13 +12,13 @@ import { ProductsService } from '../../_Services/products.service';
 export class HomeComponent implements OnInit {
 
 
-  products: Products[] = [];
+  products: Product[] = [];
   img = "assets/img/category-1.jpg";
-  constructor(public ProductsService: ProductsService) { }
+  constructor(public ProductService: ProductService) { }
 
   ngOnInit(): void {
 
-    this.ProductsService.getAll().subscribe(
+    this.ProductService.getAllProducts().subscribe(
       d => this.products = d
     )
   }

@@ -12,9 +12,13 @@ export class ProductService {
   constructor(private http: HttpClient) { }
   baseUrl = "http://localhost:3000/api/products";
 
+  add(nproduct: FormData) {
+    return this.http.post<Product>(this.baseUrl, nproduct, { headers: { authorization: this.token } });
+
+  }
 
   getAllProducts() {
-    return this.http.get<Product>(this.baseUrl, { headers: { authorization: this.token } })
+    return this.http.get<Product[]>(this.baseUrl, { headers: { authorization: this.token } })
   }
   editProduct(id: string,product: any){
     return this.http.patch<Product>(this.baseUrl+"/"+id,product,{ headers: { authorization: this.token } });
