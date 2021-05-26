@@ -7,6 +7,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductComponent } from './components/product/product.component';
 import { RegisterComponent } from './components/register/register.component';
  import { SearchComponent } from './components/search/search.component';
@@ -26,8 +27,10 @@ const routes: Routes = [
 
    {path: 'dashboard',  component:DashboardComponent},
    {path: 'edit/:id',  component:EditProductComponent},
-   {path: '**', component:HomeComponent},
 
+
+   {path: 'products/:id',  component:ProductDetailsComponent},
+   {path: '**', component:HomeComponent}
 
 
 

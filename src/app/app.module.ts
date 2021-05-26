@@ -21,6 +21,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { SearchComponent } from './components/search/search.component';
 import { ProductService } from './components/_Services/product.service';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -40,7 +41,8 @@ export function tokenGetter() {
     SettingUserComponent,
     DashboardComponent,
     EditProductComponent,
-    SearchComponent
+    SearchComponent,
+    ProductDetailsComponent
     ],
   imports: [
     BrowserModule,
