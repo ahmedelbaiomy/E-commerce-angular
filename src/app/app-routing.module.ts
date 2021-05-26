@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductComponent } from './components/product/product.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SearchComponent } from './components/search/search.component';
 import { SettingUserComponent } from './components/setting-user/setting-user.component';
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
    {path: 'product', component:ProductComponent},
    {path: 'about', component:AboutComponent},
    {path: 'setting',  component:SettingUserComponent},
+   {path:'searches/:str',component:SearchComponent},
    {path: '**', component:HomeComponent},
 
 

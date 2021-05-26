@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  search!:string ;
   constructor(public u: UserService,private router:Router) { }
   logout(){
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
@@ -16,7 +16,12 @@ export class HeaderComponent implements OnInit {
     this.u.logout();
 
   }
-
+  done(){
+    console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"+this.search)
+    this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+     this.router.navigateByUrl('/searches/'+this.search)
+    });
+   }
 
   ngOnInit(): void {
   }

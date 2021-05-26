@@ -20,10 +20,10 @@ export class ProductComponent implements OnInit {
   nproduct: Products = new Products(" ", " "," "," ");
   selectedFile!: File;
   addForm!: FormGroup;
- 
+
   Product = new FormData();
 
-  constructor(public ProductsService: ProductsService, public ar:  ActivatedRoute, public route: Router, public fb: FormBuilder) { 
+  constructor(public ProductsService: ProductsService, public ar:  ActivatedRoute, public route: Router, public fb: FormBuilder) {
     this.addForm = this.fb.group({
       product: [''],
      description: [''],
@@ -54,7 +54,7 @@ export class ProductComponent implements OnInit {
     this.Product.append('price', this.nproduct.price);
     this.Product.append('photo', this.selectedFile);
     // this.Product.append('title', this.nproduct.category)
-    
+
 
 
     this.ProductsService.add(this.Product).subscribe(
@@ -66,7 +66,7 @@ export class ProductComponent implements OnInit {
         console.log("hello"+this.Product)
       }
     )
-    this.route.navigate(["/"]);
+    this.route.navigateByUrl('/home');
   }
 
 
@@ -85,12 +85,12 @@ export class ProductComponent implements OnInit {
           console.log(error);
         });
 
-        
+
   }
 
 
 
 
-  
+
 
 }

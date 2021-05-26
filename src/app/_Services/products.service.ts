@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Products } from '../_Models/Products';
 import { Token } from '@angular/compiler/src/ml_parser/lexer';
+import { UserService } from '../components/_Services/user.service';
 
 
 @Injectable({
@@ -34,5 +35,10 @@ export class ProductsService {
     return this.http.delete(`http://localhost:3000/api/products/${id}`);
   }
 
-  constructor(private http: HttpClient) { }
+  searchby(search: string) {
+    return this.http.get<Products[]>("http://localhost:3000/api/products/search/" + search, { headers: { authorization: this.token } });
+  }
+
+  constructor(private http: HttpClient, private u: UserService) { }
+  flag: boolean = false;
 }
