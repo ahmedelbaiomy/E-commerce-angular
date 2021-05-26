@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Products } from '../../_Models/Products';
-import { ProductsService } from '../../_Services/products.service';
+import { Product } from '../_Models/Product';
+import { ProductService } from '../_Services/product.service';
+
 
 @Component({
   selector: 'app-search',
@@ -9,8 +10,8 @@ import { ProductsService } from '../../_Services/products.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  search :Products []=[];
-  constructor(public s:ProductsService,public ar:ActivatedRoute) { }
+  search :Product []=[];
+  constructor(public s:ProductService,public ar:ActivatedRoute) {}
 
   ngOnInit(): void {
     let str :string =""
@@ -24,6 +25,7 @@ export class SearchComponent implements OnInit {
             this.search = a
             console.log(a)
             console.log(str)
+            console.log(typeof( this.search));
           }
         )
 

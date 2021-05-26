@@ -18,8 +18,11 @@ export class HeaderComponent implements OnInit {
   }
   done(){
     console.log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"+this.search)
-    this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
-     this.router.navigateByUrl('/searches/'+this.search)
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl('/searches/'+this.search)
+
+
+
     });
    }
 

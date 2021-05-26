@@ -1,4 +1,4 @@
-  <!-- PRODUCT-->
+<div class="row">
   <div class="col-xl-3 col-lg-4 col-sm-6" *ngFor="let item of search">
     <div class="product text-center">
       <div class="position-relative mb-3">
@@ -34,10 +34,11 @@
         </div>
       </div>
       <h6>
-        <a class="reset-anchor" href="detail.html">{{ item.product }}</a>
+        <a class="reset-anchor" href="detail.html">{{ item.title}}</a>
       </h6>
       <p class="small text-muted">{{ item.price }}$</p>
     </div>
   </div>
 
 
+</div>
