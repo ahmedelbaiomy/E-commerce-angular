@@ -24,11 +24,8 @@ const routes: Routes = [
    {path: 'about', component:AboutComponent},
    {path: 'setting',  component:SettingUserComponent},
    {path:'searches/:str',component:SearchComponent},
-
    {path: 'dashboard',  component:DashboardComponent},
    {path: 'edit/:id',  component:EditProductComponent},
-
-
    {path: 'products/:id',  component:ProductDetailsComponent},
    {path: '**', component:HomeComponent}
 

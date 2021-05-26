@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../_Services/product.service';
 import { OrderService } from '../_Services/order.service';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -11,10 +12,18 @@ export class CartComponent implements OnInit {
   carts:any;
   cartDetails:any;
 
-  constructor(private orderservice:OrderService) { }
+  constructor(public orderservice:OrderService) {
+    console.log('card copmponet ->',this.orderservice.cardDetails$?.value);
+
+  }
+  
 
   ngOnInit(): void {
     this.getCart();
+    
+  }
+  ngOnDestroy(){
+    //this.orderservice.cardDetails$.unsubscribe()
   }
 
   getCart(): void {
