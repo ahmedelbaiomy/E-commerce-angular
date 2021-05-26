@@ -19,6 +19,9 @@ import { UserService } from './components/_Services/user.service';
 import { SettingUserComponent } from './components/setting-user/setting-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { SearchComponent } from './components/search/search.component';
+import { ProductService } from './components/_Services/product.service';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -37,7 +40,9 @@ export function tokenGetter() {
     AboutComponent,
     SettingUserComponent,
     DashboardComponent,
-    EditProductComponent
+    EditProductComponent,
+    SearchComponent,
+    ProductDetailsComponent
     ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ export function tokenGetter() {
     })
   ],
   providers: [
-    UserService
+    UserService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

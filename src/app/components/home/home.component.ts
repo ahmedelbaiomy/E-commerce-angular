@@ -10,8 +10,8 @@ import { ProductService } from '../_Services/product.service';
 
 
 export class HomeComponent implements OnInit {
-
-
+  currentProduct:any=null
+// id;
   products: Product[] = [];
   img = "assets/img/category-1.jpg";
   constructor(public ProductService: ProductService) { }
@@ -22,5 +22,10 @@ export class HomeComponent implements OnInit {
       d => this.products = d
     )
   }
+
+
+
+
+ 
 
 }

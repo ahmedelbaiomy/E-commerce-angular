@@ -1,8 +1,16 @@
+// <<<<<<< HEAD
 // import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 // import { Products } from '../_Models/Products';
 // import { Token } from '@angular/compiler/src/ml_parser/lexer';
 // import { UserService } from '../components/_Services/user.service';
+// =======
+// // import { Injectable } from '@angular/core';
+// // import { HttpClient } from '@angular/common/http';
+// // import { Products } from '../_Models/Products';
+// // import { Token } from '@angular/compiler/src/ml_parser/lexer';
+// // import { UserService } from '../components/_Services/user.service';
+// >>>>>>> d31ad90c9d8e8d80798d3ac61fe9cc31c05ccc3a
 
 
 // @Injectable({

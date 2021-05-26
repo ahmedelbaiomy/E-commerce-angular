@@ -80,6 +80,71 @@
                 </div>
               </div>
 
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">Phone</label>
+                  <input type="tel" name="customer[email]" placeholder="number" id="CustomerEmail" class=""
+                    autocorrect="off" autocapitalize="off" autofocus="" formControlName="phone" #Phone />
+
+                    <div *ngIf="
+                    phone?.invalid &&
+                    (phone?.dirty || phone?.touched)
+                  " class="alert alert-danger">
+                  <div *ngIf="phone?.errors?.required">
+                    Phone  is required.
+                  </div>
+                  <div *ngIf="phone?.errors?.pattern || phone?.errors?.minlength ||  phone?.errors?.maxlength">
+                    phone must be 11 number long.
+                  </div>
+                </div>
+
+
+
+
+                </div>
+              </div>
+
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">City</label>
+                  <input type="text" name="customer[email]" placeholder="city" id="CustomerEmail" class=""
+                    autocorrect="off" autocapitalize="off" autofocus="" formControlName="city" #City />
+                    <div *ngIf="
+                    city?.invalid &&
+                    (city?.dirty || city?.touched)
+                  " class="alert alert-danger">
+                  <div *ngIf="city?.errors?.required">
+                    city input  is required.
+                  </div>
+                </div>
+                </div>
+              </div>
+
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">Country</label>
+                  <input type="text" name="customer[email]" placeholder="country" id="CustomerEmail" class=""
+                    autocorrect="off" autocapitalize="off" autofocus="" formControlName="country" #Country />
+
+                    <div *ngIf="
+                    country?.invalid &&
+                    (country?.dirty || country?.touched)
+                  " class="alert alert-danger">
+                  <div *ngIf="country?.errors?.required">
+                    country input  is required.
+                  </div>
+                </div>
+
+
+                </div>
+              </div>
+
+
+
+
               <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group">
                   <label for="CustomerPassword">Password</label>
