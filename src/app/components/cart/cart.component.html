@@ -26,7 +26,7 @@
             <table class="table">
               <thead class="bg-light">
                 <tr>
-                  <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Product</strong></th>
+                  <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Item Name</strong></th>
                   <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Price</strong></th>
                   <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Quantity</strong></th>
                   <th class="border-0" scope="col"> <strong class="text-small text-uppercase">Total</strong></th>
@@ -34,17 +34,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let item of carts.orders">
                   <th class="pl-0 border-0" scope="row">
-                    <div class="media align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="../../../assets/img/product-detail-3.jpg" alt="..." width="70"/></a>
-                      <div class="media-body ml-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">Red digital smartwatch</a></strong></div>
+                    <div class="media align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="{{item.image}}" alt="..." width="70"/></a>
+                      <div class="media-body ml-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">{{item.title}}</a></strong></div>
                     </div>
                   </th>
+
                   <td class="align-middle border-0">
-                    <p class="mb-0 small">$250</p>
+                    <p class="mb-0 small">${{item.price}}</p>
                   </td>
+
                   <td class="align-middle border-0">
-                    <div class="border d-flex align-items-center justify-content-between px-3"><span class="small text-uppercase text-gray headings-font-family">Quantity</span>
+                    <div class="border d-flex align-items-center justify-content-between px-3"><span class="small text-uppercase text-gray headings-font-family">{{item.quantity}}</span>
                       <div class="quantity">
                         <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
                         <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="1"/>
@@ -52,33 +54,22 @@
                       </div>
                     </div>
                   </td>
+
                   <td class="align-middle border-0">
-                    <p class="mb-0 small">$250</p>
+                    <h5 class="mb-0 small">{{item.total}}</h5>
                   </td>
+
                   <td class="align-middle border-0"><a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a></td>
+
                 </tr>
+
                 <tr>
-                  <th class="pl-0 border-light" scope="row">
-                    <div class="media align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="../../../assets/img/product-detail-2.jpg" alt="..." width="70"/></a>
-                      <div class="media-body ml-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">Apple watch</a></strong></div>
-                    </div>
-                  </th>
-                  <td class="align-middle border-light">
-                    <p class="mb-0 small">$250</p>
+                  <td class="align-left border-0">
+                    Subtotal :{{ carts.subTotal }}
                   </td>
-                  <td class="align-middle border-light">
-                    <div class="border d-flex align-items-center justify-content-between px-3"><span class="small text-uppercase text-gray headings-font-family">Quantity</span>
-                      <div class="quantity">
-                        <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
-                        <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="1"/>
-                        <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
-                      </div>
-                    </div>
+                  <td class="align-right border-0">
+                    <button class="btn btn-danger" (click)="emptyCart()">Empty Cart</button>
                   </td>
-                  <td class="align-middle border-light">
-                    <p class="mb-0 small">$250</p>
-                  </td>
-                  <td class="align-middle border-light"><a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a></td>
                 </tr>
               </tbody>
             </table>
@@ -115,3 +106,67 @@
       </div>
     </section>
   </div>
+
+
+<!-- 
+
+  <th class="pl-0 border-0" scope="row">
+    <div class="media align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="../../../assets/img/product-detail-3.jpg" alt="..." width="70"/></a>
+      <div class="media-body ml-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">Red digital smartwatch</a></strong></div>
+    </div>
+  </th>
+
+  <td class="align-middle border-0">
+    <p class="mb-0 small">$250</p>
+  </td>
+
+  <td class="align-middle border-0">
+    <div class="border d-flex align-items-center justify-content-between px-3"><span class="small text-uppercase text-gray headings-font-family">Quantity</span>
+      <div class="quantity">
+        <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
+        <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="1"/>
+        <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
+      </div>
+    </div>
+  </td>
+
+  <td class="align-middle border-0">
+    <p class="mb-0 small">$250</p>
+  </td>
+
+  <td class="align-middle border-0"><a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a></td>
+</tr>
+
+
+<tr>
+  <th class="pl-0 border-light" scope="row">
+    <div class="media align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="../../../assets/img/product-detail-2.jpg" alt="..." width="70"/></a>
+      <div class="media-body ml-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">Apple watch</a></strong></div>
+    </div>
+  </th>
+  <td class="align-middle border-light">
+    <p class="mb-0 small">$250</p>
+  </td>
+  <td class="align-middle border-light">
+    <div class="border d-flex align-items-center justify-content-between px-3"><span class="small text-uppercase text-gray headings-font-family">Quantity</span>
+      <div class="quantity">
+        <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
+        <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="1"/>
+        <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
+      </div>
+    </div>
+  </td>
+  <td class="align-middle border-light">
+    <p class="mb-0 small">$250</p>
+  </td>
+  <td class="align-middle border-light"><a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a></td>
+</tr> -->
+
+
+
+
+
+<!-- <td class="align-middle border-0">
+  <button class="btn btn-outline-primary btn-sm" (click)="increaseQty(item.productId._id,1)">+</button>
+  <button class="btn btn-outline-primary btn-sm" (click)="decreaseQty(item.productId._id,1)">-</button>
+</td> -->

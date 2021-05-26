@@ -31,6 +31,23 @@ export class ProductService {
   }
 
 
+  // omar logic
+  addToCart(payload: any){
+    return this.http.post(`baseUrl/orders`,payload);
+  }
+
+  getCartItem(){
+    return this.http.get(`baseUrl/orders`);
+  }
+
+  increaseQty(payload: any){
+    return this.http.post(`baseUrl/orders`,payload)
+  }
+
+  emptyCart(){
+    return this.http.delete(`baseUrl/orders/empty-cart`);
+  }
+
 //   EditData(eUser: User) {
 //     return this.http.patch<User>('http://localhost:3000/users/edit/', eUser, { headers: { authorization: this.token } });
 //   }

@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../_Models/Product';
@@ -89,8 +86,35 @@ export class ProductComponent implements OnInit {
   }
 
 
+// this is for add to cart logic by omar
+
+  // _id: any;
+  // product = this.getProduct(this.ar.snapshot.paramMap.get('id'));
+  // //this.ProductService.getProductById(this_id);
+  // @Output() productAdded = new EventEmitter();
+  // addProductToCart(){
+  //   this.productAdded.emit(this.product);
+  // }
+
+  products:Array<object> = [];
+  getAllProduct(): void {
+    this.ProductService.getAllProducts().subscribe((data:any) =>{
+      this.products = data.data;
+      console.log(this.products);
+    });
+  }
 
 
-  
+  addItemToCart(id: any, quantity:any): void{
+    let payload = {
+      productId: id,
+      quantity,
+    };
+    this.ProductService.addToCart(payload).subscribe(()=>{
+      this.getAllProduct();
+      alert('Product Added');
+    });
+  }
 
 }
+
