@@ -36,6 +36,12 @@ export class CartComponent implements OnInit {
 
 
 
+  increaseQty(item: any): void {
+    item.quantity++;
+    alert('Product Increased by One');
+  }
+  
+
 
 
     
