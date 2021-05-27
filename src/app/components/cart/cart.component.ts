@@ -41,6 +41,10 @@ export class CartComponent implements OnInit {
     alert('Product Increased by One');
   }
   
+  decreaseQty(item:any): void {
+    item.quantity--; 
+    alert('Product Decreased by One');
+  }
 
 
 
