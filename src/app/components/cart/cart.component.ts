@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../_Services/product.service';
 import { OrderService } from '../_Services/order.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -38,23 +39,19 @@ export class CartComponent implements OnInit {
     });
   }
 
+  decreaseQty(): void {
+    
+  }
 
   increaseQty(id: any, quantity: any): void {
-    const payload = {
-      productId: id,
-      quantity,
-    };
 
-    this.orderservice.increaseQty(payload).subscribe(()=>{
-      this.getCart();
       alert('Product Added');
-    });
   }
+  
 
   emptyCart(): void {
-    this.orderservice.emptyCart().subscribe(()=>{
-      this.getCart();
+    this.orderservice.cardDetails$ = new BehaviorSubject<any>([]);;
       alert('Cart Emptied');
-    });
-  }
+    };
+
 }
