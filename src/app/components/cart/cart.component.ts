@@ -11,8 +11,13 @@ export class CartComponent implements OnInit {
 
   carts:any;
   cartDetails:any;
-
+  arr:any;
   constructor(public orderservice:OrderService) {
+    this.arr = this.orderservice.cardDetails$?.value;
+    for (let index = 0; index < this.arr.length; index++) {
+      console.log("inside the loop",this.arr[index]);
+      
+    }
     console.log('card copmponet ->',this.orderservice.cardDetails$?.value);
 
   }
