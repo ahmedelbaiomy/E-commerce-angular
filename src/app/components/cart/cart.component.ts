@@ -12,13 +12,8 @@ export class CartComponent implements OnInit {
 
   carts:any;
   cartDetails:any;
-  arr:any;
-  constructor(public orderservice:OrderService) {
-    this.arr = this.orderservice.cardDetails$?.value;
-    for (let index = 0; index < this.arr.length; index++) {
-      console.log("inside the loop",this.arr[index]);
-      
-    }
+  constructor(public orderservice:OrderService) {      
+  
     console.log('card copmponet ->',this.orderservice.cardDetails$?.value);
 
   }
@@ -39,19 +34,9 @@ export class CartComponent implements OnInit {
     });
   }
 
-  decreaseQty(): void {
+
+
+
+
     
-  }
-
-  increaseQty(id: any, quantity: any): void {
-
-      alert('Product Added');
-  }
-  
-
-  emptyCart(): void {
-    this.orderservice.cardDetails$ = new BehaviorSubject<any>([]);;
-      alert('Cart Emptied');
-    };
-
 }

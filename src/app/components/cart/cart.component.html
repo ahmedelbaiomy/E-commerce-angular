@@ -50,9 +50,9 @@
                       <!-- {{item.quantity}} --> 
                     </span>
                       <div class="quantity">
-                        <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
-                        <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="1"/>
-                        <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
+                        <button class="dec-btn p-0" ><i class="fas fa-caret-left"></i></button>
+                        <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="{{item.quantity}}"/>
+                        <button class="inc-btn p-0" ><i class="fas fa-caret-right"></i></button>
                       </div>
                     </div>
                   </td>
@@ -66,11 +66,7 @@
 
                 </tr>
 
-                <tr>
-                  <td class="align-right border-0">
-                    <button class="btn btn-danger" (click)="emptyCart()">Empty Cart</button>
-                  </td>
-                </tr>
+                
               </tbody>
             </table>
             <ng-template #elseBlock>

@@ -24,7 +24,9 @@ export class HomeComponent implements OnInit {
       d => this.products = d
     )
   }
+  quantity = 0;
   addToCart(item: any) {
+    item.quantity =1;
     this.orderService.addData(item)
     console.log(item)
   }
