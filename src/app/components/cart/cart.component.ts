@@ -29,7 +29,21 @@ export class CartComponent implements OnInit {
 
   getCart(): void {
     this.orderservice.getCartItem().subscribe((data:any) => {
-      this.carts = data.data;
+      if(!this.checkexistance(data)){
+        this.carts = data.data;
+        console.log("inside the check condition", this.carts);
+      }else{
+        let targetItem;
+        for (let i = 0; i < this.carts.length; i++) {
+          if(this.carts.data[i]==data[i])
+          {
+            targetItem = this.carts.data[i];
+            console.log(targetItem);
+            break;
+          }
+        }
+        targetItem.quantity++;
+      }
       console.log(this.carts);
     });
   }
@@ -52,5 +66,18 @@ export class CartComponent implements OnInit {
       alert('Cart Emptied');
   };
 
+
+   
+  checkexistance(item: any){
+
+    for (let index = 0; index < this.carts.length; index++) {
+      if(this.carts[index]._id==item._id)
+      {
+        console.log(this.carts);
+        return true;
+      }
+    }
+    return false;
+  }
     
 }
