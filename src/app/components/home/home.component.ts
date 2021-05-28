@@ -27,8 +27,20 @@ export class HomeComponent implements OnInit {
   quantity = 0;
   addToCart(item: any) {
     item.quantity =1;
-    this.orderService.addData(item)
-    console.log(item)
+    const items = this.orderService.cardDetails$?.value
+    let itemIsExist = false
+    items.map((val: any) => {
+      if(val._id == item._id) {
+        itemIsExist = true
+        val.quantity += 1
+        return this.orderService.cardDetails$.next(this.orderService.cardDetails$.value)
+      }
+    })
+    if (itemIsExist == false) {
+      this.orderService.addData(item)
+      console.log(item)
+    }
+   
   }
 
 

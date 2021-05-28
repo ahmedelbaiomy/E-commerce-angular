@@ -33,10 +33,10 @@
                   <th class="border-0" scope="col"> </th>
                 </tr>
               </thead>
-              <tbody *ngIf="this.orderservice.cardDetails$?.value.length > 0; else elseBlock">
-                <tr *ngFor="let item of this.orderservice.cardDetails$?.value">
+              <tbody *ngIf="carts.length > 0; else elseBlock">
+                <tr *ngFor="let item of carts">
                   <th class="pl-0 border-0" scope="row">
-                    <div class="media align-items-center"><a class="reset-anchor d-block animsition-link" routerLink="/products/{{ item._id }}"><img [src]="'http://localhost:3000/' + item.photo" alt="..." width="70"/></a>
+                    <div class="media align-items-center"><a class="reset-anchor d-block animsition-link" routerLink="/products/{{ item._id }}"><img [src]="'http://localhost:3000/' + item.photo" alt="..." width="70" height="70"/></a>
                       <div class="media-body ml-3"><strong class="h6"><a class="reset-anchor animsition-link" routerLink="/products/{{ item._id }}">{{item.title}}</a></strong></div>
                     </div>
                   </th>
@@ -58,8 +58,7 @@
                   </td>
 
                   <td class="align-middle border-0">
-                    <!-- <h5 class="mb-0 small">{{item.quantity * item.price}}</h5> -->
-                        <h5 class="mb-0 small">{{item.price}}</h5>
+                    <h5 class="mb-0 small">${{item.quantity * item.price}}</h5>
                   </td>
 
                   <td class="align-middle border-0"><a class="reset-anchor" href="#"><i class="fas fa-trash-alt small text-muted"></i></a></td>
@@ -94,9 +93,11 @@
             <div class="card-body">
               <h5 class="text-uppercase mb-4">Cart total</h5>
               <ul class="list-unstyled mb-0">
-                <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Subtotal</strong><span class="text-muted small">$250</span></li>
+                <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Subtotal</strong><span class="text-muted small">${{subPrice}}</span></li>
                 <li class="border-bottom my-2"></li>
-                <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Total</strong><span>$250</span></li>
+                <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Tax</strong><span class="text-muted small">${{tax}}</span></li>
+                <li class="border-bottom my-2"></li>
+                <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Total</strong><span>${{totalPrice}}</span></li>
                 <li>
                   <form action="#">
                     <div class="form-group mb-0">
