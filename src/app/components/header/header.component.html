@@ -1,0 +1,44 @@
+    <!-- navbar-->
+    <header class="header bg-white">
+        <div class="container px-0 px-lg-3">
+          <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0"><a class="navbar-brand" routerLink="/home"><span class="font-weight-bold text-uppercase text-dark">Boutique</span></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <!-- Link--><a class="nav-link active" routerLink="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <!-- Link--><a class="nav-link" *ngIf="u.loggedIn" routerLink="/product">Product</a>
+                </li>
+                <li class="nav-item">
+                  <!-- Link--><a class="nav-link" *ngIf="u.loggedIn" routerLink="/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                  <!-- Link--><a class="nav-link" routerLink="/about">About</a>
+                </li>
+                <li class="nav-item me-3 me-lg-0">
+                  <input class="form-control mr-sm-2" type="search"  aria-label="Search" name="search"
+                    [(ngModel)]="search" (keyup)="done()" placeholder="Search">
+                </li>
+
+                
+              </ul>
+              <ul class="navbar-nav ml-auto">
+               
+                <li class="nav-item"><a class="nav-link" *ngIf="u.loggedIn" routerLink="/cart"> <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart<small class="text-gray">({{orderservice.cardDetails$?.value?.length}})</small></a></li>
+                <li class="nav-item"><a class="nav-link"  routerLink="/login" *ngIf="!u.loggedIn"><i class="fas fa-user-alt mr-1 text-gray"></i>Login</a></li>
+                <li class="nav-item"><a class="nav-link" *ngIf="!u.loggedIn" routerLink="/register"><i class="fas fa-user-alt mr-1 text-gray"></i>Register</a></li>
+                <li>
+                <a class="nav-link" (click)="logout()" *ngIf="u.loggedIn"><i class="fas fa-power-off"></i>Logut</a>
+                </li>
+                <li>
+                   <a class="nav-link"  routerLink="/setting" *ngIf="u.loggedIn"><i class="fas fa-user-alt mr-1 text-gray"></i>My Account</a>
+                </li>
+
+
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>

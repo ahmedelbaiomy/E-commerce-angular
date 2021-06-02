@@ -1,0 +1,49 @@
+<div class="container offset-5 mt-4">
+  <div class="card" style="width: 18rem">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <a routerLink="products/{{ currentProduct.id }}"> </a>
+      </li>
+      <li class="list-group-item">
+        <img
+          class="img-fluid w-100"
+          [src]="'http://localhost:3000/' + currentProduct.photo"
+          alt="..."
+        />
+      </li>
+      <li class="list-group-item">Title :{{ currentProduct.title }}</li>
+      <li class="list-group-item">Description :{{ currentProduct.description }}</li>
+      <li class="list-group-item">Price :{{ currentProduct.price }} $</li>
+      <li class="list-inline-item m-0 p-0">
+        <button class="btn btn-sm btn-dark" (click)="addToCart(currentProduct)"
+          >Add to cart</button
+        >
+      </li>
+      <!-- <li class="list-group-item">
+        <div class="product-overlay">
+          <ul class="mb-0 list-inline">
+            <li class="list-inline-item m-0 p-0">
+              <a class="btn btn-sm btn-outline-dark" href="#"
+                ><i class="far fa-heart"></i
+              ></a>
+            </li>
+            <li class="list-inline-item m-0 p-0">
+              <button class="btn btn-sm btn-dark" (click)="addToCart(item)"
+                >Add to cart</button
+              >
+            </li>
+            <li class="list-inline-item mr-0">
+              <a
+                class="btn btn-sm btn-outline-dark"
+                href="#productView"
+                data-toggle="modal"
+                ><i class="fas fa-expand"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </li> -->
+    </ul>
+  </div>
+</div>
+

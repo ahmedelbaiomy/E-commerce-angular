@@ -1,0 +1,47 @@
+
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="#"><i class="fab fa-product-hunt"></i>  Product</a></li>
+            <li><a href="#"><i class="fas fa-cart-arrow-down"></i>  Order</a></li>
+        </ul>
+    </div>
+    <pre>
+    <div class="main_content">
+        <div class="header">Welcome!! Have a nice day.</div>  
+        <div class="info">
+                <!-- ---------------------------product table -------------------------->
+                <div class="text-center">
+                <button routerLink="/product" class="btn btn-success p-2" id="createbtn">Create new product</button>
+                </div>
+
+                <div class="d-flex justify-content-center text-center table-content">
+                    <table class="table table-dark">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col" rowspan="2">Name</th>
+                        <th scope="col" rowspan="2">Description</th>
+                        <th scope="col" rowspan="2">actions</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products">
+                            <td><a class="text-warning" routerLink="{{product._id}}">{{product._id}}</a></td>
+                            <td>{{product.title}}</td>
+                            <td>{{product.description}}</td>
+                            <td>
+                                <button class="btn btn-primary p-1" routerLink="/edit/{{product._id}}">Update</button>  <button class="btn btn-danger p-1" (click)="delete(product._id)">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+        </div>
+    </div>
+    </pre>
+</div>

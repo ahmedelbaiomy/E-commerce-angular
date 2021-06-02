@@ -1,0 +1,103 @@
+<!--Body Content-->
+<div id="page-content">
+  <!--Page Title-->
+  <div class="page section-header text-center">
+    <div class="page-title">
+      <div class="wrapper">
+        <h1 class="page-width">Create &nbsp; Product</h1>
+      </div>
+    </div>
+  </div>
+  <!--End Page Title-->
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
+        <div class="mb-4">
+          <form
+            method="post"
+            action="/products/store"
+            id="CustomerLoginForm"
+            accept-charset="UTF-8"
+            class="contact-form"
+          >
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">Product Title</label>
+                  <input
+                    type="text"
+                    id="CustomerEmail"
+                    class=""
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autofocus=""
+                    name="product"
+                    [(ngModel)]="nproduct.title"
+                  />
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">Total price</label>
+                  <input
+                    type="number"
+                    id="CustomerEmail"
+                    class=""
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autofocus=""
+                    name="price"
+                    [(ngModel)]="nproduct.price"
+                  />
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">Image</label>
+                  <input
+                    type="file"
+                    (input)="onselect($event)"
+                    [(ngModel)]="nproduct.photo"
+                    id="CustomerEmail"
+                    class=""
+                    name="photo"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autofocus=""
+                  />
+                </div>
+              </div>
+
+              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label for="CustomerEmail">Description</label>
+                  <textarea
+                    [(ngModel)]="nproduct.description"
+                    name="description"
+                    id="CustomerEmail"
+                    class=""
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autofocus=""
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div
+                class="form-group my-4 text-center text-center col-12 col-sm-12 col-md-12 col-lg-12"
+              >
+                <button class="btn btn-secondary" (click)="save()">
+                  Create product
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--End Body Content-->
